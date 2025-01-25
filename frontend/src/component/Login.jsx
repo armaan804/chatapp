@@ -8,6 +8,9 @@ import { Chatstate } from "../store/chatstore";
 export default function Login() {
   const { setloggeduser, loggeduser } = Chatstate();
   const navigate = useNavigate();
+  if (loggeduser) {
+    navigate("/");
+  }
 
   const [fetchstaus, setfetchstatus] = useState(false);
   const emailelement = useRef();

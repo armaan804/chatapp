@@ -3,10 +3,14 @@ import Spinner from "react-bootstrap/esm/Spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import styles from "./Login.module.css";
+import { Chatstate } from "../store/chatstore";
 
 export default function Signup() {
+  const { setloggeduser, loggeduser } = Chatstate();
   const navigate = useNavigate();
-
+  if (loggeduser) {
+    navigate("/");
+  }
   const [fetchstaus, setfetchstatus] = useState(false);
   const [pic, setpic] = useState("");
   const nameelement = useRef();
@@ -45,8 +49,9 @@ export default function Signup() {
         localStorage.setItem("user_id", res._id);
         localStorage.setItem("name", res.name);
         localStorage.setItem("pic", res.pic);
+        setloggeduser(res);
         setfetchstatus(false);
-        setauth(res.token);
+        // setauth(res.token);
         if (res.success) {
           toast.success(res.message);
           navigate("/");

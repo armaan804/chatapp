@@ -11,9 +11,9 @@ const userroute = require("./routes/userroute");
 const { app, server } = require("./socketio");
 const path = require("path");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 // console.log(dotenv);
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 app.use(bodyparser.json());
 
 app.use((req, res, next) => {
