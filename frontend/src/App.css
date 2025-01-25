@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+input:focus {
+  outline: none;
+}
+body,
+html {
+  /* background-color: #7f30aa; */
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+.background {
+  /* background-color: #cad1d7; */
+  backdrop-filter: blur(10px);
+  /* #24243e; */
+}
+.logo {
+  width: 50px;
+  height: 50px;
+}
+.searchbtn {
+  border-radius: 50%;
+  font-size: large;
+  width: 2rem;
+}
+.pic {
+  width: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.homecontainer {
+  width: 90vw;
+  height: 85vh;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 5px 20px 50px #000;
+  min-width: 360px;
+  max-width: 800px;
+}
+.chatcontainer {
+  width: 100%;
+  max-width: 500px;
+  height: 85vh;
+  border-left: 4px solid white;
+  /* background-color: white; */
+  position: relative;
+}
+.chatheader {
+  display: flex;
+  color: white;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem;
+  /* height: 15%; */
+  /* background-color: #bbc0c4; */
+  border-bottom: 2px solid white;
+}
+.chatinput {
+  /* position: absolute; */
+  /* bottom: 10px; */
+  /* background-color: #bbc0c4; */
+  /* border-top: 0.5px solid white; */
+  height: 8%;
+  width: 100%;
+  /* left: 10%; */
+  /* background-color: white; */
+  /* border-radius: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+}
+.chattinput {
+  /* padding: 2px; */
+  width: 90%;
+  border: none;
+  background-color: white;
+  border-radius: 20px;
+}
+.activechat {
+  background-color: #0284c7;
+}
+.chatlist {
+  border-bottom: 1px solid white;
+}
+.chatlist:hover {
+  background-color: grey;
+}
+/* .conversationcontainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  overflow-y: scroll;
+}
+.chat {
+  position: relative;
+  left: -10px;
+  /* top: 10px; 
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: aquamarine;
+} */
+@media screen and (min-width: 360px) {
+  .backbtn {
+    display: none;
+  }
+}
+
+.block {
+  display: none;
+}
