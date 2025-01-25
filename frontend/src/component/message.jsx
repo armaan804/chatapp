@@ -8,22 +8,11 @@ import { Chatstate } from "../store/chatstore";
 
 const Message = ({ users }) => {
   const [loading, setloading] = useState(false);
-  // const [newMessageuser,setNewmessageuser]=useState('');
-  const {
-    setNewmessageuser,
-    Newmessageuser,
-    setvisual,
-    setchatvisual,
-    setselectedchat,
-  } = Chatstate();
+  const { setNewmessageuser, setvisual, setchatvisual, setselectedchat } =
+    Chatstate();
   const chat = useRef();
   const lastmessage = useRef();
-  const {
-    selectedConversation,
-    setselectedConversation,
-    setmessage,
-    messages,
-  } = userconversation();
+  const { selectedConversation, setmessage, messages } = userconversation();
   const { socket } = useSocketContext();
 
   // soket.io
@@ -35,7 +24,6 @@ const Message = ({ users }) => {
         setmessage([...messages, newmessage]);
       }
       setNewmessageuser(newmessage);
-      console.log(newmessage);
     });
     return () => socket.off("newMessage");
   }, [socket, setmessage, messages]);
@@ -45,24 +33,12 @@ const Message = ({ users }) => {
       lastmessage.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   }, [messages]);
-  // console.log(Newmessageuser);
   const handlesend = async () => {
     try {
-      //   setloading(true);
       const msg = chat.current.value;
       chat.current.value = "";
 
       const token = localStorage.getItem("token");
-
-      //   console.log(msg);
-      //   const config = {
-      //     headers: { Authorization: `Bearer ${token}` },
-      //   };
-      //   const { data } = await axios.post(
-      //     `http://localhost:3000/message/send/${users._id}`,
-      //     { message: chat },
-      //     config
-      //   );
       fetch(`http://localhost:3000/message/send/${users._id}`, {
         method: "POST",
         headers: {
@@ -71,22 +47,13 @@ const Message = ({ users }) => {
         },
         body: JSON.stringify({
           message: msg,
-          //   password: password,
         }),
       })
         .then((res) => res.json())
         .then((res) => {
-          // localStorage.setItem("token", res);
-          console.log(res);
           const newmessage = [...messages, res];
-          console.log(newmessage);
 
           setmessage(newmessage);
-
-          //   setChats(data);
-          //   console.log(data);
-          //   setmessage(data);
-          //   setloading(false);
         });
     } catch (err) {
       console.log(err);
@@ -104,8 +71,6 @@ const Message = ({ users }) => {
         `http://localhost:3000/message/${users._id}`,
         config
       );
-      //   setChats(data);
-      console.log(data);
       setmessage(data);
       setloading(false);
     } catch (err) {
@@ -117,10 +82,8 @@ const Message = ({ users }) => {
   }, [users, selectedConversation?._id, setmessage]);
 
   const handleback = () => {
-    console.log("back");
     setchatvisual("hidden");
     setvisual("");
-    // setselectedConversation({});
     setselectedchat({});
   };
   return (

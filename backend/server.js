@@ -9,10 +9,11 @@ const authroutes = require("./routes/authroutes");
 const messageroute = require("./routes/messageroute");
 const userroute = require("./routes/userroute");
 const { app, server } = require("./socketio");
+const path = require("path");
 
 const port = process.env.PORT || 3000;
 // console.log(dotenv);
-
+const __dirname = path.resolve();
 app.use(bodyparser.json());
 
 app.use((req, res, next) => {
@@ -26,6 +27,11 @@ app.use(cors());
 app.use("/auth", authroutes);
 app.use("/message", messageroute);
 app.use("/user", userroute);
+
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 server.listen(port, () => {
   console.log(`node server running on port no. ${port}`);

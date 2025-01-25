@@ -24,7 +24,6 @@ const registeruser = async (req, res) => {
     const senddata = { name, email, password, gender, pic: profilepic };
     const user = new User(senddata);
     const respose = await user.save();
-    console.log("user id  ", user._id);
     const payload = {
       id: user._id,
     };

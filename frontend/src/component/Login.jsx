@@ -1,8 +1,7 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Spinner from "react-bootstrap/Spinner";
-import { authcontext } from "../store/authstore";
 import styles from "./Login.module.css";
 import { Chatstate } from "../store/chatstore";
 
@@ -42,14 +41,10 @@ export default function Login() {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem("token", res.token);
-        // const data = {_id:res._id
         localStorage.setItem("user_id", res._id);
         localStorage.setItem("name", res.name);
         localStorage.setItem("pic", res.pic);
-
-        console.log(res.message);
         setfetchstatus(false);
-        // setauth(res);
         setloggeduser(res);
         console.log(loggeduser);
         if (res.success) {
@@ -63,29 +58,6 @@ export default function Login() {
   return (
     <main>
       <div className={styles.main}>
-        {/* <div className="signup">
-        <form>
-          <label for="chk" aria-hidden="true">
-            Sign up
-          </label>
-          < input className={styles.input} type="text" name="txt" placeholder="User name" required="" />
-          < input className={styles.input} type="email" name="email" placeholder="Email" required="" />
-          {/* < input className={styles.input}
-            type="number"
-            name="broj"
-            placeholder="BrojTelefona"
-            required=""
-           /> 
-          < input className={styles.input}
-            type="password"
-            name="pswd"
-            placeholder="Password"
-            required=""
-          />
-          <button>Sign up</button>
-        </form>
-      </div> */}
-
         <div className={styles.login}>
           <form>
             <label for="chk" aria-hidden="true">

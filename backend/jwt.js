@@ -6,7 +6,6 @@ const generatetoken = (userid) => {
 };
 
 const jwtmiddleware = async (req, res, next) => {
-  console.log("jwt called");
   const Authorization = req.headers.authorization;
   if (!Authorization) return res.status(400).json("auth not found");
   const token = Authorization.split(" ")[1];
@@ -15,7 +14,6 @@ const jwtmiddleware = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
-    // console.log(decoded);
     next();
   } catch (err) {
     console.log(err);

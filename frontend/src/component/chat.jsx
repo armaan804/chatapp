@@ -1,7 +1,6 @@
 import React from "react";
 import { Chatstate } from "../store/chatstore";
 import userconversation from "../zustand/messagecontroler";
-import { useState } from "react";
 
 export default function Chat({ users }) {
   const {
@@ -11,12 +10,10 @@ export default function Chat({ users }) {
     setNewmessageuser,
     setchatvisual,
     setvisual,
+    Newmessageuser,
+    loggeduser,
   } = Chatstate();
   const { selectedConversation, setselectedConversation } = userconversation();
-  const { Newmessageuser, loggeduser } = Chatstate();
-  // const [activechat, setactivechat] = useState("");
-
-  console.log(users._id);
   const handleclick = () => {
     setselectedConversation(users);
     setSelectedChat(users);
@@ -68,9 +65,6 @@ export default function Chat({ users }) {
             <div></div>
           )}
         </div>
-        {/* <div className="col-10 mb-1 small" style={{ marginLeft: "70px" }}>
-          Some placeholder content in div paragraph below the heading and date.
-        </div> */}
       </div>
     </div>
   );

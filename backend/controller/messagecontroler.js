@@ -7,7 +7,6 @@ const sendmessage = async (req, res) => {
     const { message } = req.body;
     const { id: reciverid } = req.params;
     const { id: senderid } = req.user;
-    console.log(message, " ", reciverid, " ", senderid);
     let chat = await Chat.findOne({ users: { $all: [senderid, reciverid] } });
     if (!chat) {
       chat = await Chat.create({ users: [senderid, reciverid] });

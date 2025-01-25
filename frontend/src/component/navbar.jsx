@@ -20,13 +20,16 @@ export default function Navbar() {
           boxShadow: "5px 20px 50px #000",
         }}
       >
-        <div className="container-fluid">
+        <div className="container-fluid ">
           <img
-            src="https://th.bing.com/th?id=OIP.kTU8bDenXyTTtuPk0PZT5wHaCo&w=350&h=124&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.3&pid=3.1&rm=2"
+            src="https://th.bing.com/th/id/OIP.xRWpWm7_LXO3eDcrDs5YJwHaHa?w=171&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
             alt="Logo"
             width="80"
-            // height="40"
+            // height="60"
             className="d-inline-block align-text-top"
+            style={{
+              mixBlendMode: "screen",
+            }}
           />
           <span>Jarvis-Chat</span>
           <button onClick={handleclick}>

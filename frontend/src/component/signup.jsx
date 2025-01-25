@@ -1,13 +1,10 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Spinner from "react-bootstrap/esm/Spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import { authcontext } from "../store/authstore";
 import styles from "./Login.module.css";
 
 export default function Signup() {
-  const { setauth } = useContext(authcontext);
-  const [gender, setgender] = useState("");
   const navigate = useNavigate();
 
   const [fetchstaus, setfetchstatus] = useState(false);
@@ -23,7 +20,7 @@ export default function Signup() {
     const password = passwordelement.current.value;
     const gender = genderelement.current.value;
     if (name === "" || email === "" || password === "" || gender === "") {
-      console.log("please filled allfields");
+      // console.log("please filled allfields");
       toast("please fill all fields");
       return;
     }
@@ -48,7 +45,6 @@ export default function Signup() {
         localStorage.setItem("user_id", res._id);
         localStorage.setItem("name", res.name);
         localStorage.setItem("pic", res.pic);
-        console.log(res);
         setfetchstatus(false);
         setauth(res.token);
         if (res.success) {
@@ -64,7 +60,6 @@ export default function Signup() {
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
-      console.log(reader.result);
       setpic(reader.result);
     };
     reader.onerror = (error) => {
@@ -121,12 +116,6 @@ export default function Signup() {
               // ref={passwordelement}
             />
           </form>
-          {/* <center className="flex justify-center">
-            <input type="checkbox" value={"male"} />
-            male
-            <input type="checkbox" className="ml-3" value={"female"} />
-            female
-          </center> */}
           {!fetchstaus ? (
             <button className={styles.button} onClick={handlesubmit}>
               Sign up

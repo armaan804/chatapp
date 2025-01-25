@@ -4,19 +4,16 @@ import { useNavigate } from "react-router-dom";
 const Chatcontext = createContext();
 
 const Chatprovider = ({ children }) => {
-  // const history = useHistory();
   const navigate = useNavigate();
   const user = {
     _id: localStorage.getItem("user_id"),
     name: localStorage.getItem("name"),
     pic: localStorage.getItem("pic"),
   };
-  console.log(user);
   const [User, setUser] = useState();
   const [selectedChat, setSelectedChat] = useState({});
   const [notification, setNotification] = useState([]);
   const [loggeduser, setloggeduser] = useState(user);
-  console.log(loggeduser);
   const [chats, setChats] = useState([]);
   const [searchchat, setsearchchat] = useState([]);
   const [Newmessageuser, setNewmessageuser] = useState("");

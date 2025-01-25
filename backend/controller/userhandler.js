@@ -5,7 +5,6 @@ const finduser = async (req, res) => {
   try {
     const search = req.query.search || "";
     const { id: currentuserid } = req.user;
-    console.log(search, " ", currentuserid);
     const user = await User.find({
       $and: [
         {

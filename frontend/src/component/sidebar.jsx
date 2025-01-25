@@ -18,7 +18,6 @@ const Sidebar = () => {
     loggeduser,
     visual,
   } = Chatstate();
-  //   loggeduser = localStorage.getItem("userinfo");
 
   const handlesearch = async () => {
     const search = searchelement.current.value;
@@ -62,22 +61,19 @@ const Sidebar = () => {
   const handleclick = (e) => {
     e.preventDefault();
     handlesearch();
-    console.log(searchchat);
   };
   const handleback = () => {
     setsearchchat([]);
   };
-  console.log(loggeduser);
-  console.log(chats);
   return (
     <div
-      className=""
-      // className={`sm:max-sm:w-full sm:  ${visual}`}
       style={{
         width: "40%",
         maxWidth: "340px",
         height: "85vh",
         // minWidth: "310px",
+        overflowY: "scroll",
+        scrollbarWidth: "none",
       }}
     >
       <div className=" d-flex flex-column align-items-stretch flex-shrink-0 background">
@@ -123,17 +119,12 @@ const Sidebar = () => {
             }
             alt="pic"
           />
-
-          {/* <span className="fs-5 fw-semibold searchinput"> */}
-
-          {/* </span> */}
         </span>
         {searchchat.length === 0
           ? chats.map((users) => <Chat key={users._id} users={users}></Chat>)
           : searchchat.map((users) => (
               <Chat key={users._id} users={users}></Chat>
             ))}
-        {/* <Chat users={chats[0]}></Chat> */}
       </div>
     </div>
   );

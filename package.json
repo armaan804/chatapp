@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
+    "start": "node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "\"Armaan\"",
@@ -23,6 +25,7 @@
     "mongoose": "^8.9.4",
     "nodemon": "^3.1.9",
     "parser": "^0.1.4",
+    "part": "^0.1.1",
     "socket.io": "^4.8.1",
     "token": "^0.1.0",
     "web": "^0.0.2"
