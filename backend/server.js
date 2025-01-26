@@ -13,7 +13,7 @@ const path = require("path");
 
 const port = process.env.PORT || 3001;
 // console.log(dotenv);
-// const __dirname = path.resolve();
+const __dirname1 = path.resolve();
 app.use(bodyparser.json());
 
 app.use((req, res, next) => {
@@ -30,7 +30,7 @@ app.use("/user", userroute);
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  res.sendFile(path.join(__dirname1, "frontend", "dist", "index.html"));
 });
 
 server.listen(port, () => {
