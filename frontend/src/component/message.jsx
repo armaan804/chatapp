@@ -17,7 +17,7 @@ const Message = ({ users }) => {
 
   // soket.io
   useEffect(() => {
-    socket.on("newMessage", (newmessage) => {
+    socket?.on("newMessage", (newmessage) => {
       const sound = new Audio(notify);
       sound.play();
       if (users._id === newmessage.senderid) {
@@ -25,12 +25,12 @@ const Message = ({ users }) => {
       }
       setNewmessageuser(newmessage);
     });
-    return () => socket.off("newMessage");
+    return () => socket?.off("newMessage");
   }, [socket, setmessage, messages]);
 
   useEffect(() => {
     setTimeout(() => {
-      lastmessage.current?.scrollIntoView({ behavior: "smooth" });
+      lastmessage?.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   }, [messages]);
   const handlesend = async () => {
