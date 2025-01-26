@@ -39,7 +39,7 @@ const Message = ({ users }) => {
       chat.current.value = "";
 
       const token = localStorage.getItem("token");
-      fetch(`https://jarvis-chat.onrender.com/message/send/${users._id}`, {
+      fetch(`https://jarvis-chat.onrender.com/api/message/send/${users._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const Message = ({ users }) => {
         headers: { Authorization: `Bearer ${token}` },
       };
       const { data } = await axios.get(
-        `https://jarvis-chat.onrender.com/message/${users._id}`,
+        `https://jarvis-chat.onrender.com/api/message/${users._id}`,
         config
       );
       setmessage(data);

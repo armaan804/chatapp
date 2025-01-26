@@ -24,11 +24,11 @@ app.use((req, res, next) => {
 });
 app.use(cors());
 
-app.use("/auth", authroutes);
-app.use("/message", messageroute);
-app.use("/user", userroute);
+app.use("api/auth", authroutes);
+app.use("api/message", messageroute);
+app.use("api/user", userroute);
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.use(express.static(path.join(__dirname1, "/frontend/dist")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname1, "frontend", "dist", "index.html"));
 });
