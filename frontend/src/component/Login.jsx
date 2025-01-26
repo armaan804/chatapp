@@ -8,7 +8,7 @@ import { Chatstate } from "../store/chatstore";
 export default function Login() {
   const { setloggeduser, loggeduser } = Chatstate();
   const navigate = useNavigate();
-  if (loggeduser) {
+  if (localStorage.getItem("token")) {
     navigate("/");
   }
 
