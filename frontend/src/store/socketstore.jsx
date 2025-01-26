@@ -17,7 +17,7 @@ export const SocketContextProvider = ({ children }) => {
   //   const loggeduser = "6783fcd53e8076ed4827e5e7";
   useEffect(() => {
     if (loggeduser) {
-      const socket = io("http://localhost:3000/", {
+      const socket = io("https://jarvis-chat.onrender.com", {
         query: {
           userId: loggeduser,
         },

@@ -29,7 +29,7 @@ export default function Signup() {
       return;
     }
     setfetchstatus(true);
-    fetch("http://localhost:3000/auth/signup", {
+    fetch("https://jarvis-chat.onrender.com/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

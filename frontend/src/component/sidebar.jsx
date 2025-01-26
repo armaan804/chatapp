@@ -27,7 +27,7 @@ const Sidebar = () => {
         headers: { Authorization: `Bearer ${token}` },
       };
       const { data } = await axios.get(
-        `http://localhost:3000/user/find?search=${search}`,
+        `https://jarvis-chat.onrender.com/user/find?search=${search}`,
         config
       );
       setsearchchat(data);
@@ -44,7 +44,7 @@ const Sidebar = () => {
         headers: { Authorization: `Bearer ${token}` },
       };
       const { data } = await axios.get(
-        `http://localhost:3000/user/currentuser`,
+        `https://jarvis-chat.onrender.com/user/currentuser`,
         config
       );
       setChats(data);

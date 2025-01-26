@@ -30,7 +30,7 @@ export default function Login() {
       return;
     }
     setfetchstatus(true);
-    fetch("http://localhost:3000/auth/login", {
+    fetch("https://jarvis-chat.onrender.com/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
